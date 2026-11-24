@@ -21,6 +21,7 @@ resource "aws_instance" "httpd" {
   security_groups = [ module.sg.sg_id["httpd"] ]
 
   user_data = file("${path.module}/configs/user_data.sh")
+  depends_on = [ aws_ssm_parameter.cloudwatch_config ]
 }
 
 resource "aws_lb" "httpd" {

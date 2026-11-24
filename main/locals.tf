@@ -15,3 +15,8 @@ data "aws_acm_certificate" "olzak" {
   domain = "*.olzak.click"
   statuses = ["ISSUED"]
 }
+
+data "aws_route53_zone" "olzak" {
+  name = "olzak.click"
+  private_zone = false
+}

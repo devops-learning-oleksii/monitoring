@@ -28,10 +28,6 @@ module "sg" {
   tags = var.default_tags
 }
 
-data "aws_route53_zone" "olzak" {
-  name = "olzak.click"
-  private_zone = false
-}
 resource "aws_route53_record" "www" {
   zone_id = data.aws_route53_zone.olzak.zone_id
   name = "www"
